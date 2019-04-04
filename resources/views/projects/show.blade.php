@@ -18,7 +18,8 @@
                         <a href="/projects" class="btn btn-primary">Back</a>
                         <br>
                         <br>
-                        <form action="{{url('accept')}}">
+                        <form method='POST' action="{{url('accept')}}">
+                            @method('GET')
                             <input type="hidden" name="post_id" value="{{$post->id}}">
                             <button type="submit" class="btn btn-primary">Accept</button>
                         </form>              
