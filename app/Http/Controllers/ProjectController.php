@@ -152,10 +152,10 @@ class ProjectController extends Controller
 
     public function accept(Request $request){
         $id = $request->input('post_id');
-        $user_id = auth()->user()->id;
+        $user = auth()->user();
 
         $project = Project::find($id);
-        $project->employee_id = $user_id;
+        $project->employee_id = $user["id"];
         $project->save();
 
         return redirect('/projects')->with('success', 'Project accepted');
